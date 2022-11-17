@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bolder;
+  box-shadow: 0px 1px 1px 0px grey;
+  align-items: center;
+  padding: 1.2rem;
+}
+.header-title{
+  font-size:20px ;
+  font-weight: bolder;
+  
+}
+.nav-elements {
+  display: flex;
+  gap: 3rem;
+}
+.nav-icons{
+  font-size: 1.5rem;
+}
+
+.icon-type{
+  font-size: small;
+  margin: 0;
+}
