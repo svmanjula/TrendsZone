@@ -1,5 +1,5 @@
 import React from "react";
-import "./sidebar.css";
+import "./Sidebar.css";
 
 const Sidebar = () => {
   return (
@@ -11,6 +11,7 @@ const Sidebar = () => {
       <hr />
       <div className="filter-elements">
         <div className="filter-title"> Sort by</div>
+
         <label>
           <input type="radio" /> Latest
         </label>
@@ -28,7 +29,6 @@ const Sidebar = () => {
           <input type="checkbox" /> In stock only
         </label>
         <label>
-          {" "}
           Price range:0 to 5000
           <input type="range" />
         </label>
