@@ -13,7 +13,7 @@ const Header = () => {
         <Link exact to="/" className="nav-link" >
           Home
         </Link>
-        <Link to="productpage" className="nav-link" >Shop now </Link>
+        <Link to="/productpage" className="nav-link" >Shop now </Link>
       </div>
 
       <input className="search-element" placeholder="search" />
@@ -21,7 +21,7 @@ const Header = () => {
       <div className="nav-elements">
         <div>
           <MdPersonOutline className="nav-icons" />
-          <p className="icon-type">profile</p>
+          <Link  to ="/loginpage" className="icon-type nav-link"> login </Link>
         </div>
         <div>
           <BiHeart className="nav-icons " />
