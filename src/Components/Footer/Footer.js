@@ -8,14 +8,18 @@ const Footer = () => {
   return (
     <div className="footer">
       <p>Made by Manjula S.</p>
-      <div className="footer-nav" >
-        <Link to="" className="nav-link" >
+      <div className="footer-nav">
+        <Link to="" className="nav-link-footer">
           <AiFillGithub />
         </Link>
 
-        <Link to="" className="nav-link" >
+        <a
+          href="https://www.google.com"
+          target="_blank"
+          className="nav-link-footer"
+        >
           <AiFillLinkedin />
-        </Link>
+        </a>
       </div>
     </div>
   );

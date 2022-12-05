@@ -5,20 +5,14 @@
   color: white;
   background-color: rgb(46, 45, 45);
   padding: 0.5rem 0 1rem;
-
- 
-  
-  
 }
 
 p {
   font-size: 1rem;
   font-weight: bolder;
 }
-.nav-link{
-    text-decoration: none;
-    color: inherit;
-    padding: 0 1rem;
-  }
-  
-  
+.nav-link-footer {
+  text-decoration: none;
+  color: inherit;
+  padding: 0 1rem;
+}
