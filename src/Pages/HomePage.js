@@ -9,7 +9,7 @@ const HomePage = () => {
     <div>
       <Header />
       <div className="main">
-        <img className="hero-img" src={heroimg} />
+        <img className="hero-img" src={heroimg}  alt ="img"/>
         <div className="prod-categories">
           <div className="category-title">Categories </div>
           <div className="category-types">

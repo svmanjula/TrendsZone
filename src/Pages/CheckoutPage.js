@@ -3,7 +3,6 @@ import "./CheckoutPage.css"
 import Header from '../Components/Header/Header'
 import { CartContext } from '../Context/Context'
 import { Link } from 'react-router-dom'
-import { cartReducer } from '../Context/Reducers'
 import{AiOutlinePlus,AiOutlineMinus} from "react-icons/ai"
 
 const CheckoutPage = () => {
@@ -45,11 +44,11 @@ const CheckoutPage = () => {
            
             <div  key={cartProduct.id} className='cart-product-container'>
              <div>
-             <img  className='cart-product-img' src={cartProduct.image}/>
+             <img   alt="img" className='cart-product-img' src={cartProduct.image}/>
              </div>
 
              <div className='cart-product-detail' >
-             <div>{cartProduct.title} </div>
+             <div className='cartprod-title' >{cartProduct.title.split(" ").slice(0,3).join(" ") } </div>
              <div>${cartProduct.price} </div>
 
              

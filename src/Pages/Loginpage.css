@@ -1,16 +1,21 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
-    width:20rem ;
+    width: 20rem;
     position: absolute;
 
     box-shadow: 0 0 15px -3px;
     padding: 2rem;
     margin-top: 12rem;
-    margin-left: 30rem;
-    
-    
+
+
 }
+
+.profile-container{
+    display: flex;
+    justify-content: center;
+}
+
 .button {
     padding: 0.7rem;
     margin-top: 1rem;
@@ -20,35 +25,36 @@
     color: white;
 }
 
-.title{
+.title {
     font-size: large;
     font-weight: bolder;
     text-align: center;
 }
 
-input{
+input {
     padding: 0.6rem;
     margin-top: 0.3rem;
 }
 
 
 
-.container > label{
+.container>label {
     margin-top: 1rem;
 }
 
-.test{
+.test {
     background-color: white;
-    color: rgb(41, 40, 40);;
+    color: rgb(41, 40, 40);
+    ;
 }
 
-.container-text{
+.container-text {
     text-align: center;
     margin-top: 1rem;
 }
 
-.container-nav{
+.container-nav {
     color: inherit;
     text-decoration: none;
-   font-weight: bolder;
+    font-weight: bolder;
 }
