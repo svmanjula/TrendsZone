@@ -1,7 +1,9 @@
 .hero-img {
   height: 25rem;
-  width: 100vw;
+  width: 80vw;
   object-fit: cover;
+  margin-top: 5.5rem;
+
 }
 
 .prod-categories {
@@ -14,26 +16,39 @@
   justify-content: space-around;
   padding: 2rem;
   flex-wrap: wrap;
+  margin-bottom: 5rem;
+
 }
+
 .category-title {
   padding: 2rem;
   font-size: 1.2rem;
 }
 
 .category-type {
-  border: 1px solid grey;
-  /* box-shadow: 0 0 ; */
-  height: 10rem;
-  width: 13rem;
+  box-shadow: 0 0 10px -2px grey;
 
+  width: 13rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
 }
+
+.category-type-img {
+  height: 10rem;
+  width: 10rem;
+}
+
 
 .brand-title {
   font-size: 1.1rem;
   font-weight: bolder;
   text-align: center;
 }
+
 .brands {
   display: flex;
   gap: 1rem;

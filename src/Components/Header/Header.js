@@ -5,7 +5,7 @@ import { BsCart3 } from "react-icons/bs";
 import "./Header.css";
 import { Link, useLocation } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
-import { CartContext } from "../../Context/Context";
+import { CartContext } from "../../context/Context";
 
 const Header = () => {
   const [hamburgerClick, setHamburgerClick] = useState(false);
@@ -77,7 +77,7 @@ const Header = () => {
       <div className="nav-elements">
         
           
-          <Link to="/login" className=" linkStyle nav-element media-query ">
+          <Link to="/login" className=" linkStyle nav-element media-query nav-profile">
           <MdPersonOutline className="nav-icons " />
           <p className="icon-type">profile</p>
           </Link>

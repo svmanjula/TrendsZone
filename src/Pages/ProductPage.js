@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
-import Footer from "../Components/Footer/Footer";
-import Header from "../Components/Header/Header";
-import Sidebar from "../Components/Sidebar/Sidebar";
-import "./Productpage.css";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
+import Sidebar from "../components/Sidebar/Sidebar";
+import "./ProductPage.css";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { CartContext } from "../Context/Context";
+import { CartContext } from "../context/Context";
 import { type } from "@testing-library/user-event/dist/type";
+import Rating from "../components/Rating";
 
 const ProductPage = () => {
   const {
@@ -20,7 +21,7 @@ const ProductPage = () => {
       <div className="products-container">
         {products.map((product) => (
           <div key={product.id} className="product-container ">
-            <img src={product.image} className="prod-img" />
+            <img  alt ="img" src={product.image} className="prod-img" />
 
             {
               wishlist.some((prod)=> prod.id == product.id ) ? (<AiFillHeart onClick ={()=>{
@@ -44,6 +45,7 @@ const ProductPage = () => {
             {product.description}
           </div> */}
             <div className="prod-cost">${product.price} </div>
+            <Rating rating={product.rating.rate} />
             {cart.some((prod) => prod.id === product.id) ? (
               <button
                 className="prod-button remove-button"

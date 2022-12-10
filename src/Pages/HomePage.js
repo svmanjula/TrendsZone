@@ -1,30 +1,51 @@
-import Header from "../Components/Header/Header";
-import heroimg from "../Assests/heroimg.jpg";
-import "./Homepage.css";
+import Header from "../components/Header/Header";
+import heroimg from "../assests/heroimg.jpg";
+import "./HomePage.css";
 import React from "react";
-import Footer from "../Components/Footer/Footer";
+import Footer from "../components/Footer/Footer";
 
 const HomePage = () => {
   return (
     <div>
       <Header />
       <div className="main">
-        <img className="hero-img" src={heroimg}  alt ="img"/>
+        <img className="hero-img" src={heroimg} alt="img" />
         <div className="prod-categories">
           <div className="category-title">Categories </div>
           <div className="category-types">
-            <div className="category-type">Wired</div>
-            <div className="category-type">Noise cancelling</div>
-            <div className="category-type">Wireless</div>
-            <div className="category-type">Speaker</div>
+            <div className="category-type">
+              <img className="category-type-img"
+                alt="img"
+                src="https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg"
+              />
+              <div> Electronics</div>
+            </div>
+            <div className="category-type">
+              <img className="category-type-img"
+                alt="img"
+                src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+              />
+              <div> Men's clothing</div>
+            </div>
+
+            
+            <div className="category-type">
+              <img className="category-type-img"
+                alt="img"
+                src="https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg"
+              />
+              <div> Women's clothing</div>
+            </div>
+            <div className="category-type">
+             
+              <img className="category-type-img"
+                alt="img"
+                src="https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg"
+              />
+               <div> Jewelery</div>
+            </div>
           </div>
-          <div className="brand-title">Top Brands</div>
-          <div className="brands">
-            <div className="brand-name">Marshall </div>
-            <div className="brand-name">Sony </div>
-            <div className="brand-name">JBL </div>
-            <div className="brand-name">Boat </div>
-          </div>
+          
         </div>
       </div>
       <Footer />

@@ -15,12 +15,15 @@
   font-size: 1.2rem;
   font-weight: bolder;
 }
-
+.nav-profile{
+  margin-bottom: 0.9rem;
+}
 .nav-elements {
   display: flex;
   padding-right: 5rem;
   gap: 3rem;
   align-items: center;
+  margin: 0.2rem;
 }
 .nav-icons {
   font-size: 1.7rem;
@@ -69,7 +72,7 @@
   left: -1rem;
   z-index: 1;
   height: 100vh;
-  width: 17rem;
+  width: 15rem;
   background-color: white;
   color: black;
   text-align: center;
@@ -83,7 +86,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 2rem;
+  /* padding-top: 2rem; */
 }
 .hamburger-link:hover {
   background-color: grey;
@@ -107,6 +110,7 @@
 .nav-link {
   padding: 0.7rem;
   border-radius: 8rem;
+  text-align: center;
 }
 
 .nav-link:hover{
