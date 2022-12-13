@@ -20,6 +20,10 @@
 
   padding: 1rem 0;
 }
+
+.clear-filter {
+cursor: pointer;
+}
 .filter-elements input {
   margin-right: 1rem;
 }

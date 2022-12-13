@@ -1,11 +1,32 @@
-.hero-img {
-  height: 25rem;
-  width: 80vw;
-  object-fit: cover;
+.main{
+  position: absolute;
   margin-top: 5.5rem;
+  width: 100vw;
 
 }
 
+.hero-background {
+  height: 25rem;
+  object-fit: contain;
+  background-color: rgb(156, 156, 86);
+  color: aliceblue;
+  font-size: 3rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap: 0.3rem;
+
+}
+.title{
+  background-color: rgb(43, 41, 41);
+color: white;
+border-radius: 5rem;
+border: none;
+padding: 1rem;
+font-size: large;
+
+}
 .prod-categories {
   font-weight: bolder;
 }
@@ -17,6 +38,7 @@
   padding: 2rem;
   flex-wrap: wrap;
   margin-bottom: 5rem;
+  
 
 }
 

@@ -4,13 +4,27 @@ import Rating from "../Rating";
 import "./Sidebar.css";
 
 const Sidebar = () => {
-  const { filterDispatch, filterState:{byRating, sort, byCategory} } = useContext(CartContext);
+  const {
+    filterDispatch,
+    filterState: { byRating, sort, byCategory },
+  } = useContext(CartContext);
+
+  const [select, setSelect] = useState(false)
 
   return (
     <div className="sidebar">
       <div className="filter-title">
         <span>Filters </span>
-        <span>Clear all </span>
+        <span
+          className="clear-filter"
+          onClick={() => {
+            filterDispatch({
+              type: "CLEAR_ALL",
+            });
+          }}
+        >
+          Clear all{" "}
+        </span>
       </div>
       <hr />
       <div className="filter-elements">
@@ -19,7 +33,7 @@ const Sidebar = () => {
         <label>
           <input
             type="radio"
-            name="sortby"
+            name="group1"
             onChange={() => {
               filterDispatch({
                 type: "SORT_BY_PRICE",
@@ -33,7 +47,7 @@ const Sidebar = () => {
         <label>
           <input
             type="radio"
-            name="sortby"
+            name="group1"
             onChange={() => {
               filterDispatch({
                 type: "SORT_BY_PRICE",
@@ -83,7 +97,7 @@ const Sidebar = () => {
           />
           Men's clothing
         </label>
-        
+
         <label>
           <input
             type="checkbox"
