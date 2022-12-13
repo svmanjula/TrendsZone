@@ -32,11 +32,11 @@ export const cartReducer = (state, action) => {
     //     cart: [
     //       ...state.cart.filter(
     //         (prod) =>
-    //           prod.id === action.payload.id &&
+    //           prod.id == action.payload.id &&
     //           (state.quantity = action.payload.quantity)
     //       ),
     //     ],
-      // };
+    //   };
     default:
       return state;
   }
@@ -57,8 +57,8 @@ export const FilterReducer = (state, action) => {
     case "SORT_BY_CATEGORIES":
       return {
         ...state,
-        byCategory:[ ...state.byCategory, action.payload],
-        // byCategory: action.payload
+        // byCategory:[ ...state.byCategory, action.payload],
+        byCategory: action.payload
       };
 
       case "SORT_BY_PRICE":
