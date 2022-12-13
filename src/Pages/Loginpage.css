@@ -1,15 +1,10 @@
 .container{
     display: flex;
     flex-direction: column;
-    width:20rem ;
-    position: absolute;
-
+    width:20% ;
     box-shadow: 0 0 15px -3px;
+    margin: 5rem 0 0 34rem;
     padding: 2rem;
-    margin-top: 12rem;
-    margin-left: 30rem;
-    
-    
 }
 .button {
     padding: 0.7rem;

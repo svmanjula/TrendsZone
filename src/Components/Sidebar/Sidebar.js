@@ -30,7 +30,7 @@ const Sidebar = () => {
         </label>
         <label>
           Price range:0 to 5000
-          <input type="range" className="range-input" />
+          <input type="range" />
         </label>
       </div>
       <hr />
@@ -74,8 +74,6 @@ const Sidebar = () => {
           JBL
         </label>
       </div>
-
-  
     </div>
   );
 };

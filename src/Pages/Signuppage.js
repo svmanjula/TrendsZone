@@ -10,7 +10,6 @@ const Signuppage = () => {
 
       <div className="container">
         <div className="title">Sign up </div>
-
         <label>Full name </label>
         <input placeholder="Enter your full name" type="text" />
 
@@ -25,8 +24,9 @@ const Signuppage = () => {
 
         <button className="button ">Sign up</button>
         <div className="container-text">
-          Already a user?
-          <Link className="container-nav" to="/login">
+          Already a user?{" "}
+          <Link className="container-nav" to="/loginpage">
+           
             login
           </Link>
         </div>

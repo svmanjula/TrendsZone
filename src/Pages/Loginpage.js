@@ -21,7 +21,7 @@ const Loginpage = () => {
         <button className="button ">Login</button>
         <div className="container-text">
           Not a user?
-          <Link className="container-nav" to="/signup">
+          <Link className="container-nav" to="/signuppage">
            
             signup
           </Link>
