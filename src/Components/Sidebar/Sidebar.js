@@ -1,21 +1,7 @@
-import React, { useContext, useState } from "react";
-import { CartContext } from "../../context/Context";
-import Rating from "../Rating";
+import React from "react";
 import "./Sidebar.css";
 
 const Sidebar = () => {
-  const {
-    products,
-    byRating,
-    filterState,
-    byCategories,
-    filterDispatch,
-    sort,
-  } = useContext(CartContext);
-
-
-
-  console.log(filterState );
   return (
     <div className="sidebar">
       <div className="filter-title">
@@ -27,122 +13,69 @@ const Sidebar = () => {
         <div className="filter-title"> Sort by</div>
 
         <label>
-          <input
-            type="radio"
-            name="sortby"
-
-            onChange ={
-              filterDispatch({
-                type: "SORT_BY_PRICE",
-                payload: "lowToHigh",
-              })
-             }
-            checked={sort === "lowToHigh" ? true : false}
-
-          />
-          Price(Low to High)
+          <input type="radio" name ="sortby" /> Latest
         </label>
         <label>
-          <input
-            type="radio"
-            name="sortby"
-            onChange={filterDispatch({
-              type: "SORT_BY_PRICE",
-              payload: "highToLow",
-            })}
-            checked={sort === "highToLow" ? true : false}
-          />
-          Price(High to Low)
+          <input type="radio"  name ="sortby" /> Price(Low to High)
+        </label>
+        <label>
+          <input type="radio" name ="sortby"  /> Price(High to Low)
         </label>
       </div>
       <hr />
-      {/* <div className="filter-elements">
-        <div className="filter-title"> Price</div>
-        
+      <div className="filter-elements">
+        <div className="filter-title"> Availability and Price</div>
+        <label>
+          <input type="checkbox" /> In stock only
+        </label>
         <label>
           Price range:0 to 5000
           <input type="range" className="range-input" />
         </label>
       </div>
-      <hr /> */}
+      <hr />
       <div className="filter-elements">
         <div className="filter-title"> Types</div>
         <label>
-          <input
-            type="checkbox"
-            onChange={() => {
-              filterDispatch({
-                type: "SORT_BY_CATEGORIES",
-                payload: "Electronics",
-              });
-            }}
-            // checked={byCategories === "Electronics" ? true : false}
-          />
-          Electronics
+          <input type="checkbox" />
+          Wired
         </label>
         <label>
-          <input
-            type="checkbox"
-            onChange={() => {
-              filterDispatch({
-                type: "SORT_BY_CATEGORIES",
-                payload: "Men's clothing",
-              });
-            }}
-            // checked={byCategories === "Men's clothing" ? true : false}
-
-          />
-          Men's clothing
+          <input type="checkbox" />
+          Wireless
         </label>
         <label>
-          <input
-            type="checkbox"
-            onChange={() => {
-              filterDispatch({
-                type: "SORT_BY_CATEGORIES",
-                payload: "Speaker",
-              });
-            }}
-            // checked={byCategories === "Speaker" ? true : false}
-
-          />
-          Speaker
+          <input type="checkbox" /> Speaker
         </label>
         <label>
-          <input
-            type="checkbox"
-            onChange={() => {
-              filterDispatch({
-                type: "SORT_BY_CATEGORIES",
-                payload: "Women's clothing",
-              });
-            }}
-            // checked={byCategories === " Women's clothing" ? true : false}
-
-          />
-          Women's clothing
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            onChange={() => {
-              filterDispatch({
-                type: "SORT_BY_CATEGORIES",
-                payload: "Jewelery",
-              });
-            }}
-            // checked={byCategories === " Jewelery" ? true : false}
-
-          />
-          Jewelery
+          <input type="checkbox" />
+          Noise Cancelling
         </label>
       </div>
       <hr />
       <div className="filter-elements">
-        <div className="filter-title"> Rating</div>
-
-        <Rating rating={byRating} />
+        <div className="filter-title"> Brands</div>
+        <label>
+          <input type="checkbox" /> Bose
+        </label>
+        <label>
+          <input type="checkbox" />
+          Boat
+        </label>
+        <label>
+          <input type="checkbox" /> Marshall
+        </label>
+        <label>
+          <input type="checkbox" />
+          Sony
+        </label>
+        <label>
+          <input type="checkbox" />
+          JBL
+        </label>
       </div>
+
+  
     </div>
   );
 };
