@@ -5,7 +5,7 @@ import { BsCart3 } from "react-icons/bs";
 import "./Header.css";
 import { Link, useLocation } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
-import { CartContext } from "../../context/Context";
+import { CartContext } from "../../contextX/Context";
 
 const Header = () => {
   const [hamburgerClick, setHamburgerClick] = useState(false);
