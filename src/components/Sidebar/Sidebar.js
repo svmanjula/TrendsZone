@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../../context/Context";
 import Rating from "../Rating";
 import "./Sidebar.css";
@@ -8,8 +8,6 @@ const Sidebar = () => {
     filterDispatch,
     filterState: { byRating, sort, byCategory },
   } = useContext(CartContext);
-
-  const [select, setSelect] = useState(false);
 
   return (
     <div className="sidebar">

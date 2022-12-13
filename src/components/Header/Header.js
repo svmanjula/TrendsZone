@@ -11,7 +11,10 @@ const Header = () => {
   const [hamburgerClick, setHamburgerClick] = useState(false);
   const location = useLocation();
 
-  const {state:{cart,wishlist},filterDispatch }=useContext(CartContext)
+  const {
+    state: { cart, wishlist },
+    filterDispatch,
+  } = useContext(CartContext);
 
   const handleToggle = () => {
     setHamburgerClick(!hamburgerClick);
@@ -69,32 +72,37 @@ const Header = () => {
         <Link to="/product" className="nav-link linkStyle media-query">
           Shop now
         </Link>
-      </div> 
+      </div>
       {location.pathname === "/product" && (
-        <input className="search-element" placeholder="search "  onChange ={(e)=>{
-          filterDispatch({
-            type:"FILTER_BY_SEARCH",
-            payload:e.target.value,
-          })
-        }}  />
+        <input
+          className="search-element"
+          placeholder="search "
+          onChange={(e) => {
+            filterDispatch({
+              type: "FILTER_BY_SEARCH",
+              payload: e.target.value,
+            });
+          }}
+        />
       )}
 
       <div className="nav-elements">
-        
-          
-          <Link to="/login" className=" linkStyle nav-element media-query nav-profile">
+        <Link
+          to="/login"
+          className=" linkStyle nav-element media-query nav-profile"
+        >
           <MdPersonOutline className="nav-icons " />
-          <div className="icon-type">profile</div>
-          </Link>
-      
-        <Link to="/wishlist"className="nav-element linkStyle ">
+          <div className="icon-type">Profile</div>
+        </Link>
+
+        <Link to="/wishlist" className="nav-element linkStyle ">
           <BiHeart className="nav-icons " />
-          <div className="icon-type ">whishlist</div>
-          <div className="badge" >{wishlist.length} </div>
+          <div className="icon-type ">Whishlist</div>
+          <div className="badge">{wishlist.length} </div>
         </Link>
         <Link to="/checkout" className="nav-element linkStyle">
           <BsCart3 className="nav-icons" />
-          <div className="icon-type">cart</div>
+          <div className="icon-type">Cart</div>
           <div className="badge">{cart.length}</div>
         </Link>
       </div>

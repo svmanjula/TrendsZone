@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import Header from "../components/Header/Header";
-import Sidebar from "../components/Sidebar/Sidebar";
+import Header from "../../components/Header/Header";
+import Sidebar from "../../components/Sidebar/Sidebar";
 import "./ProductPage.css";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { CartContext } from "../context/Context";
-import Rating from "../components/Rating";
+import { CartContext } from "../../context/Context";
+import Rating from "../../components/Rating";
 
 const ProductPage = () => {
   const {
@@ -29,21 +29,17 @@ const ProductPage = () => {
       );
     }
     if (byCategory) {
-      sortedProducts = sortedProducts.filter(
-        (prod) =>  byCategory.includes(prod.category)
+      sortedProducts = sortedProducts.filter((prod) =>
+        byCategory.includes(prod.category)
       );
     }
-    
 
-   
     if (byRating) {
       sortedProducts = sortedProducts.filter((prod) => {
         console.log("rating", prod.rating.rate >= byRating);
         return prod.rating.rate >= byRating;
       });
-    }
-
-     else {
+    } else {
       return sortedProducts;
     }
   };
@@ -57,7 +53,7 @@ const ProductPage = () => {
           <div key={product.id} className="product-container ">
             <img alt="img" src={product.image} className="prod-img" />
 
-            {wishlist.some((prod) => prod.id == product.id) ? (
+            {wishlist.some((prod) => prod.id === product.id) ? (
               <AiFillHeart
                 onClick={() => {
                   dispatch({

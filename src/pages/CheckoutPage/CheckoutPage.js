@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./CheckoutPage.css";
-import Header from "../components/Header/Header";
-import { CartContext } from "../context/Context";
+import "../CheckoutPage/CheckoutPage.css";
 import { Link } from "react-router-dom";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
-import Rating from "../components/Rating";
+import Header from "../../components/Header/Header";
+import { CartContext } from "../../context/Context";
+import Rating from "../../components/Rating";
 
 const CheckoutPage = () => {
   const [total, setTotal] = useState(0);
@@ -18,11 +18,11 @@ const CheckoutPage = () => {
 
   useEffect(() => {
     setTotal(cart.reduce((acc, curr) => acc + curr.price, 0));
-  }, []);
+  }, [cart]);
 
-  const increment = () => {
+  function increment() {
     return quantity + 1;
-  };
+  }
   const decrement = () => {
     return quantity - 1;
   };
@@ -90,7 +90,6 @@ const CheckoutPage = () => {
                       <button
                         className="cart-product-qty increment"
                         onClick={() => {
-                          
                           increment();
                         }}
                       >

@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
-import { CartContext, Context } from "../context/Context";
-import "./ProductPage.css";
-import "./CheckoutPage.css";
-
+import { CartContext } from "../../context/Context";
+import "../ProductPage/ProductPage.css";
+import "../CheckoutPage/CheckoutPage.css";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import Header from "../components/Header/Header";
+import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
 
 const Wishlistpage = () => {
@@ -16,15 +15,14 @@ const Wishlistpage = () => {
     <div>
       <Header />
 
-      {wishlist.length == 0 ? (
+      {wishlist.length === 0 ? (
         <div className="cart-container empty-container">
           <h3> Your wishlist is empty..</h3>
           <p>
-            {" "}
-            Explore more products,{" "}
+            Explore more products,
             <Link to="/product" className="empty-container-link">
-              continue shopping.{" "}
-            </Link>{" "}
+              continue shopping.
+            </Link>
           </p>
         </div>
       ) : (
@@ -33,9 +31,9 @@ const Wishlistpage = () => {
           <div className="wishlist-products-container">
             {wishlist.map((product) => (
               <div key={product.id} className="product-container">
-                <img src={product.image} className="prod-img" />
+                <img src={product.image} alt="img" className="prod-img" />
 
-                {wishlist.some((prod) => prod.id == product.id) ? (
+                {wishlist.some((prod) => prod.id === product.id) ? (
                   <AiFillHeart
                     onClick={() => {
                       dispatch({

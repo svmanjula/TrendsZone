@@ -1,8 +1,8 @@
-import Header from "../components/Header/Header";
-import "./HomePage.css";
+import Header from "../../components/Header/Header";
+import "../HomePage/HomePage.css";
 import React, { useContext } from "react";
-import Footer from "../components/Footer/Footer";
-import { CartContext } from "../context/Context";
+import Footer from "../../components/Footer/Footer";
+import { CartContext } from "../../context/Context";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
@@ -12,9 +12,13 @@ const HomePage = () => {
     <div>
       <Header />
       <div className="main">
-        <div className="hero-background">Discover the trends
-       <Link to ="./product"className="linkStyle title " > Shop now </Link>
-         </div>
+        <div className="hero-background">
+          Discover the trends
+          <Link to="./product" className="linkStyle title ">
+            {" "}
+            Shop now{" "}
+          </Link>
+        </div>
         <div className="prod-categories">
           <div className="category-title">Categories </div>
           <div className="category-types">
@@ -91,7 +95,6 @@ const HomePage = () => {
         </div>
         <Footer />
       </div>
-      
     </div>
   );
 };
