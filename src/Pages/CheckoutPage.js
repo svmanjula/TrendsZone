@@ -17,7 +17,7 @@ const CheckoutPage = () => {
   console.log(quantity);
 
   useEffect(() => {
-    setTotal(cart.reduce((acc, curr) => acc + curr.price, 0));
+    setTotal(cart.reduce((acc, curr) => acc + (curr.price), 0));
   }, []);
 
   const increment = () => {
@@ -31,7 +31,7 @@ const CheckoutPage = () => {
     <div>
       <Header />
 
-      {cart.length === 0 ? (
+      {cart.length == 0 ? (
         <div className="cart-container empty-container">
           <h3> Your cart is empty.</h3>
           <p>

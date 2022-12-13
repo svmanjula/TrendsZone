@@ -66,13 +66,7 @@ export const FilterReducer = (state, action) => {
           ...state, sort:action.payload
         }
   
-case "CLEAR_ALL":
-  return {
-    byRating: 0,
-    byCategory: "",
-    bySearch: "",
-    sort:""
-  }
+
     default:
       return state;
   }
