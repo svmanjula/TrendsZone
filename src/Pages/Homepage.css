@@ -65,11 +65,11 @@ font-size: large;
 }
 
 
-.brand-title {
+/* .brand-title {
   font-size: 1.1rem;
   font-weight: bolder;
   text-align: center;
-}
+} */
 
 .brands {
   display: flex;
