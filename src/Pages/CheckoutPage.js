@@ -14,19 +14,18 @@ const CheckoutPage = () => {
     dispatch,
   } = useContext(CartContext);
 
+  console.log(quantity);
+
   useEffect(() => {
-    setTotal(cart.reduce((acc, curr) => acc + Number(curr.price), 0));
+    setTotal(cart.reduce((acc, curr) => acc + (curr.price), 0));
   }, []);
 
-  
-
-
-  // const increment = () => {
-  //   return(quantity + 1);
-  // };
-  // const decrement = () => {
-  //   return(quantity - 1);
-  // };
+  const increment = () => {
+    return quantity + 1;
+  };
+  const decrement = () => {
+    return quantity - 1;
+  };
 
   return (
     <div>
@@ -81,7 +80,7 @@ const CheckoutPage = () => {
                       ) : (
                         <button
                           className="cart-product-qty decrement"
-                          onClick={() => {}}
+                          onClick={() => decrement()}
                         >
                           <AiOutlineMinus />
                         </button>
@@ -90,14 +89,8 @@ const CheckoutPage = () => {
                       <span className="cart-product-qty">{quantity} </span>
                       <button
                         className="cart-product-qty increment"
-                        onChange={(e) => {
-                          dispatch({
-                            type: "INCREMENT",
-                            payload: {
-                              quantity: e.value.target,
-                              id: cartProduct.id,
-                            },
-                          });
+                        onClick={() => {
+                          increment();
                         }}
                       >
                         <AiOutlinePlus />
@@ -112,7 +105,7 @@ const CheckoutPage = () => {
                           });
                         }}
                       >
-                        Remove from cart{" "}
+                        Remove from cart
                       </button>
                       <button
                         onClick={() => {
@@ -122,7 +115,7 @@ const CheckoutPage = () => {
                           });
                         }}
                       >
-                        Move to wislist{" "}
+                        Move to wislist
                       </button>
                     </div>
                   </div>

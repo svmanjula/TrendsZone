@@ -19,18 +19,19 @@ const Context = ({ children }) => {
     cart: [],
     wishlist: [],
     products: products,
-    quantity: 0,
+    quantity: 1,
   });
 
   const [filterState, filterDispatch] = useReducer(FilterReducer, {
     byRating: 0,
-    byCategories: "",
+    byCategory: "",
     bySearch: "",
+    sort:""
   });
 
   return (
     <CartContext.Provider
-      value={{ products, state, dispatch, filterState, filterDispatch }}
+      value={{ products, state, dispatch, filterState, filterDispatch, }}
     >
       {children}
     </CartContext.Provider>
