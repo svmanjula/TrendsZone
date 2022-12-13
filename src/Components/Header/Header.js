@@ -84,18 +84,18 @@ const Header = () => {
           
           <Link to="/login" className=" linkStyle nav-element media-query nav-profile">
           <MdPersonOutline className="nav-icons " />
-          <div className="icon-type">profile</div>
+          <p className="icon-type">profile</p>
           </Link>
       
         <Link to="/wishlist"className="nav-element linkStyle ">
           <BiHeart className="nav-icons " />
-          <div className="icon-type ">whishlist</div>
-          <div className="badge" >{wishlist.length} </div>
+          <p className="icon-type ">whishlist</p>
+          <div>{wishlist.length} </div>
         </Link>
         <Link to="/checkout" className="nav-element linkStyle">
           <BsCart3 className="nav-icons" />
-          <div className="icon-type">cart</div>
-          <div className="badge">{cart.length}</div>
+          <p className="icon-type">cart</p>
+          <div>{cart.length}</div>
         </Link>
       </div>
     </div>
