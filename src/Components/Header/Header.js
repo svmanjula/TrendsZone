@@ -11,7 +11,7 @@ const Header = () => {
   const [hamburgerClick, setHamburgerClick] = useState(false);
   const location = useLocation();
 
-  const {state:{cart,wishlist},filterDispatch }=useContext(CartContext)
+  const {state:{cart,wishlist}}=useContext(CartContext)
 
   const handleToggle = () => {
     setHamburgerClick(!hamburgerClick);
@@ -71,12 +71,7 @@ const Header = () => {
         </Link>
       </div> 
       {location.pathname === "/product" && (
-        <input className="search-element" placeholder="search "  onChange ={(e)=>{
-          filterDispatch({
-            type:"FILTER_BY_SEARCH",
-            payload:e.target.value,
-          })
-        }}  />
+        <input className="search-element" placeholder="search " />
       )}
 
       <div className="nav-elements">

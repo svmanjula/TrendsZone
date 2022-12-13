@@ -4,8 +4,18 @@ import Rating from "../Rating";
 import "./Sidebar.css";
 
 const Sidebar = () => {
-  const { filterDispatch, filterState:{byRating, sort, byCategory} } = useContext(CartContext);
+  const {
+    products,
+    byRating,
+    filterState,
+    byCategories,
+    filterDispatch,
+    sort,
+  } = useContext(CartContext);
 
+
+
+  console.log(filterState );
   return (
     <div className="sidebar">
       <div className="filter-title">
@@ -20,13 +30,15 @@ const Sidebar = () => {
           <input
             type="radio"
             name="sortby"
-            onChange={() => {
+
+            onChange ={
               filterDispatch({
                 type: "SORT_BY_PRICE",
                 payload: "lowToHigh",
-              });
-            }}
+              })
+             }
             checked={sort === "lowToHigh" ? true : false}
+
           />
           Price(Low to High)
         </label>
@@ -34,12 +46,10 @@ const Sidebar = () => {
           <input
             type="radio"
             name="sortby"
-            onChange={() => {
-              filterDispatch({
-                type: "SORT_BY_PRICE",
-                payload: "highToLow",
-              });
-            }}
+            onChange={filterDispatch({
+              type: "SORT_BY_PRICE",
+              payload: "highToLow",
+            })}
             checked={sort === "highToLow" ? true : false}
           />
           Price(High to Low)
@@ -63,10 +73,10 @@ const Sidebar = () => {
             onChange={() => {
               filterDispatch({
                 type: "SORT_BY_CATEGORIES",
-                payload: "electronics",
+                payload: "Electronics",
               });
             }}
-            checked={byCategory === "electronics" ? true : false}
+            // checked={byCategories === "Electronics" ? true : false}
           />
           Electronics
         </label>
@@ -76,24 +86,39 @@ const Sidebar = () => {
             onChange={() => {
               filterDispatch({
                 type: "SORT_BY_CATEGORIES",
-                payload: "men's clothing",
+                payload: "Men's clothing",
               });
             }}
-            checked={byCategory === "men's clothing" ? true : false}
+            // checked={byCategories === "Men's clothing" ? true : false}
+
           />
           Men's clothing
         </label>
-        
         <label>
           <input
             type="checkbox"
             onChange={() => {
               filterDispatch({
                 type: "SORT_BY_CATEGORIES",
-                payload: "women's clothing",
+                payload: "Speaker",
               });
             }}
-            checked={byCategory === "women's clothing" ? true : false}
+            // checked={byCategories === "Speaker" ? true : false}
+
+          />
+          Speaker
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            onChange={() => {
+              filterDispatch({
+                type: "SORT_BY_CATEGORIES",
+                payload: "Women's clothing",
+              });
+            }}
+            // checked={byCategories === " Women's clothing" ? true : false}
+
           />
           Women's clothing
         </label>
@@ -103,10 +128,11 @@ const Sidebar = () => {
             onChange={() => {
               filterDispatch({
                 type: "SORT_BY_CATEGORIES",
-                payload: "jewelery",
+                payload: "Jewelery",
               });
             }}
-            checked={byCategory === "jewelery" ? true : false}
+            // checked={byCategories === " Jewelery" ? true : false}
+
           />
           Jewelery
         </label>

@@ -9,7 +9,7 @@ const Rating = ({ rating }) => {
     <div>
       {[...Array(5)].map((_, i) => (
         <span key ={i} onClick={() => filterDispatch({
-          type:"FILTER_BY_RATING",
+          type:"SORT_BY_RATING",
           payload:(i + 1)
         })
         

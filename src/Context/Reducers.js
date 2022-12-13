@@ -1,3 +1,4 @@
+import ProductPage from "../pages/ProductPage";
 
 export const cartReducer = (state, action) => {
   switch (action.type) {
@@ -5,7 +6,7 @@ export const cartReducer = (state, action) => {
       return {
         ...state,
         cart: [...state.cart, action.payload],
-        quantity:state.quantity
+        quantity: state.quantity + 1
       };
     case "REMOVE_FROM_CART":
       return {
@@ -44,12 +45,12 @@ export const cartReducer = (state, action) => {
 
 export const FilterReducer = (state, action) => {
   switch (action.type) {
-    case "FILTER_BY_RATING":
+    case "SORT_BY_RATING":
       return {
         ...state,
         byRating: action.payload,
       };
-    case "FILTER_BY_SEARCH":
+    case "SORT_BY_SEARCH":
       return {
         ...state,
         bySearch: action.payload,
@@ -57,14 +58,13 @@ export const FilterReducer = (state, action) => {
     case "SORT_BY_CATEGORIES":
       return {
         ...state,
-        // byCategory:[ ...state.byCategory, action.payload],
-        byCategory: action.payload
+        byCategories:[ ...state.byCategories, action.payload],
       };
 
-      case "SORT_BY_PRICE":
-        return{
-          ...state, sort:action.payload
-        }
+      // case "SORT_BY_PRICE":
+      //   return{
+      //     ...state, sort:action.payload
+      //   }
   
 
     default:
