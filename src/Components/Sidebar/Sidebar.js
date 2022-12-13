@@ -9,7 +9,7 @@ const Sidebar = () => {
     filterState: { byRating, sort, byCategory },
   } = useContext(CartContext);
 
-  const [select, setSelect] = useState(false)
+  const [select, setSelect] = useState(false);
 
   return (
     <div className="sidebar">
@@ -80,7 +80,7 @@ const Sidebar = () => {
                 payload: "electronics",
               });
             }}
-            checked={byCategory === "electronics" ? true : false}
+            checked={byCategory.includes("electronics") ? true : false}
           />
           Electronics
         </label>
@@ -93,7 +93,7 @@ const Sidebar = () => {
                 payload: "men's clothing",
               });
             }}
-            checked={byCategory === "men's clothing" ? true : false}
+            checked={byCategory.includes("men's clothing") ? true : false}
           />
           Men's clothing
         </label>
@@ -107,7 +107,7 @@ const Sidebar = () => {
                 payload: "women's clothing",
               });
             }}
-            checked={byCategory === "women's clothing" ? true : false}
+            checked={byCategory.includes("women's clothing") ? true : false}
           />
           Women's clothing
         </label>
@@ -120,7 +120,7 @@ const Sidebar = () => {
                 payload: "jewelery",
               });
             }}
-            checked={byCategory === "jewelery" ? true : false}
+            checked={byCategory.includes("jewelery") ? true : false}
           />
           Jewelery
         </label>

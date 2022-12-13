@@ -16,7 +16,7 @@ const ProductPage = () => {
   } = useContext(CartContext);
 
   const filterProducts = () => {
-    let sortedProducts = products;
+    let sortedProducts = [...products];
 
     if (sort) {
       sortedProducts = sortedProducts.sort((a, b) =>
@@ -30,24 +30,30 @@ const ProductPage = () => {
     }
     if (byCategory) {
       sortedProducts = sortedProducts.filter(
-        (prod) => prod.category === byCategory
+        (prod) =>  byCategory.includes(prod.category)
       );
     }
+    
+
+   
     if (byRating) {
-      sortedProducts = sortedProducts.filter(
-        (prod) => prod.rating.rate >= byRating
-      );
-    } else {
+      sortedProducts = sortedProducts.filter((prod) => {
+        console.log("rating", prod.rating.rate >= byRating);
+        return prod.rating.rate >= byRating;
+      });
+    }
+
+     else {
       return sortedProducts;
     }
   };
-  console.log(filterProducts());
+  console.log(byCategory);
 
   return (
     <div>
       <Header />
       <div className="products-container">
-        {filterProducts().map((product) => (
+        {filterProducts()?.map((product) => (
           <div key={product.id} className="product-container ">
             <img alt="img" src={product.image} className="prod-img" />
 

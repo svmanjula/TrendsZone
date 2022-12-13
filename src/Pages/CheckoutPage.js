@@ -90,6 +90,7 @@ const CheckoutPage = () => {
                       <button
                         className="cart-product-qty increment"
                         onClick={() => {
+                          
                           increment();
                         }}
                       >
