@@ -13,13 +13,13 @@ const Sidebar = () => {
         <div className="filter-title"> Sort by</div>
 
         <label>
-          <input type="radio" name ="sortby" /> Latest
+          <input type="radio" /> Latest
         </label>
         <label>
-          <input type="radio"  name ="sortby" /> Price(Low to High)
+          <input type="radio" /> Price(Low to High)
         </label>
         <label>
-          <input type="radio" name ="sortby"  /> Price(High to Low)
+          <input type="radio" /> Price(High to Low)
         </label>
       </div>
       <hr />

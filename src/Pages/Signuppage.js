@@ -7,7 +7,7 @@ const Signuppage = () => {
   return (
     <div>
       <Header />
-      <div className="profile-container" >
+
       <div className="container">
         <div className="title">Sign up </div>
 
@@ -31,7 +31,6 @@ const Signuppage = () => {
           </Link>
         </div>
       </div>
-    </div>
     </div>
   );
 };

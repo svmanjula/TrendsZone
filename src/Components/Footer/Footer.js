@@ -13,10 +13,11 @@ const Footer = () => {
           <AiFillGithub />
         </Link>
 
-        <a 
+        <a
           href="https://www.google.com"
           target="_blank"
-          className="nav-link-footer">
+          className="nav-link-footer"/
+        >
           <AiFillLinkedin />
         </a>
       </div>

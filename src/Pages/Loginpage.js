@@ -7,7 +7,6 @@ const Loginpage = () => {
   return (
     <div>
       <Header />
-      <div className="profile-container" >
 
       <div className="container">
         <div className="title">Login </div>
@@ -27,7 +26,6 @@ const Loginpage = () => {
             signup
           </Link>
         </div>
-      </div>
       </div>
     </div>
   );

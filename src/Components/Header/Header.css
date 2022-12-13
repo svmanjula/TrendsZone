@@ -4,11 +4,11 @@
   font-weight: bolder;
   box-shadow: 0px 1px 1px 0px grey;
   align-items: center;
-  padding: 0.7rem;
+  padding: 1.2rem;
   position: fixed;
   z-index: 1;
   background-color: white;
-  width: 100vw;
+  width: 100%;
 }
 
 .brand-title {
