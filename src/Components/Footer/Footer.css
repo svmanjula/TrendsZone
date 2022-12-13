@@ -17,4 +17,5 @@ p {
   color: inherit;
   padding: 0 1rem;
   font-size: larger;
+  border-radius: 2px solid red;
 }
