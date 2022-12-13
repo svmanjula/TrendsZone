@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    position: absolute;
+
+    box-shadow: 0 0 15px -3px;
+    padding: 2rem;
+    margin-top: 12rem;
+
+
+}
+
+.profile-container{
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    padding: 0.7rem;
+    margin-top: 1rem;
+    font-weight: bolder;
+    border: 1px solid grey;
+    background-color: rgb(41, 40, 40);
+    color: white;
+}
+
+.title {
+    font-size: large;
+    font-weight: bolder;
+    text-align: center;
+}
+
+input {
+    padding: 0.6rem;
+    margin-top: 0.3rem;
+}
+
+
+
+.container>label {
+    margin-top: 1rem;
+}
+
+.test {
+    background-color: white;
+    color: rgb(41, 40, 40);
+    ;
+}
+
+.container-text {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.container-nav {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bolder;
+}
