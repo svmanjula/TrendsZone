@@ -1,11 +1,10 @@
-
 export const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
       return {
         ...state,
         cart: [...state.cart, action.payload],
-        quantity:state.quantity
+        quantity: state.quantity,
       };
     case "REMOVE_FROM_CART":
       return {
@@ -36,7 +35,7 @@ export const cartReducer = (state, action) => {
     //           (state.quantity = action.payload.quantity)
     //       ),
     //     ],
-      // };
+    // };
     default:
       return state;
   }
@@ -54,25 +53,32 @@ export const FilterReducer = (state, action) => {
         ...state,
         bySearch: action.payload,
       };
-    case "SORT_BY_CATEGORIES":
+
+    case "FILTER_BY_CATEGORY":
       return {
         ...state,
-        byCategory:[ ...state.byCategory, action.payload],
-        // byCategory: action.payload
+        byCategory: [...state.byCategory, action.payload],
+      };
+    case "UNFILTER_BY_CATEGORY":
+      return {
+        ...state,
+        byCategory: [...state.byCategory.filter((prod)=> prod !== action.payload )]
+        
       };
 
-      case "SORT_BY_PRICE":
-        return{
-          ...state, sort:action.payload
-        }
-  
-case "CLEAR_ALL":
-  return {
-    byRating: 0,
-    byCategory: "",
-    bySearch: "",
-    sort:""
-  }
+    case "SORT_BY_PRICE":
+      return {
+        ...state,
+        sort: action.payload,
+      };
+
+    case "CLEAR_ALL":
+      return {
+        byRating: 0,
+        byCategory: "",
+        bySearch: "",
+        sort: "",
+      };
     default:
       return state;
   }

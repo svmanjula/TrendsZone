@@ -9,6 +9,17 @@ const Sidebar = () => {
     filterState: { byRating, sort, byCategory },
   } = useContext(CartContext);
 
+  const filterCategory = (e, payloadValue) =>
+    e.target.checked === true
+      ? filterDispatch({
+          type: "FILTER_BY_CATEGORY",
+          payload: payloadValue,
+        })
+      : filterDispatch({
+          type: "UNFILTER_BY_CATEGORY",
+          payload: payloadValue,
+        });
+
   return (
     <div className="sidebar">
       <div className="filter-title">
@@ -21,7 +32,7 @@ const Sidebar = () => {
             });
           }}
         >
-          Clear all{" "}
+          Clear all
         </span>
       </div>
       <hr />
@@ -72,11 +83,8 @@ const Sidebar = () => {
         <label>
           <input
             type="checkbox"
-            onChange={() => {
-              filterDispatch({
-                type: "SORT_BY_CATEGORIES",
-                payload: "electronics",
-              });
+            onChange={(e) => {
+              filterCategory(e, "electronics");
             }}
             checked={byCategory.includes("electronics") ? true : false}
           />
@@ -85,11 +93,8 @@ const Sidebar = () => {
         <label>
           <input
             type="checkbox"
-            onChange={() => {
-              filterDispatch({
-                type: "SORT_BY_CATEGORIES",
-                payload: "men's clothing",
-              });
+            onChange={(e) => {
+              filterCategory(e, "men's clothing");
             }}
             checked={byCategory.includes("men's clothing") ? true : false}
           />
@@ -99,11 +104,8 @@ const Sidebar = () => {
         <label>
           <input
             type="checkbox"
-            onChange={() => {
-              filterDispatch({
-                type: "SORT_BY_CATEGORIES",
-                payload: "women's clothing",
-              });
+            onChange={(e) => {
+              filterCategory(e, "women's clothing");
             }}
             checked={byCategory.includes("women's clothing") ? true : false}
           />
@@ -112,11 +114,8 @@ const Sidebar = () => {
         <label>
           <input
             type="checkbox"
-            onChange={() => {
-              filterDispatch({
-                type: "SORT_BY_CATEGORIES",
-                payload: "jewelery",
-              });
+            onChange={(e) => {
+              filterCategory(e, "jewelery");
             }}
             checked={byCategory.includes("jewelery") ? true : false}
           />
