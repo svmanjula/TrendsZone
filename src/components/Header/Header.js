@@ -5,15 +5,17 @@ import { BsCart3 } from "react-icons/bs";
 import "./Header.css";
 import { Link, useLocation } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
-import { CartContext } from "../../context/Context";
+import { CartContext } from "../../context/CartContext/CartContext";
+import { FilterContext } from "../../context/FilterContext/FilterContext";
 
 const Header = () => {
   const [hamburgerClick, setHamburgerClick] = useState(false);
   const location = useLocation();
 
+  const { filterDispatch, filterState:{bySearch} } = useContext(FilterContext);
+
   const {
-    state: { cart, wishlist },
-    filterDispatch,
+    productState: { wishlist, cart },
   } = useContext(CartContext);
 
   const handleToggle = () => {
@@ -80,9 +82,10 @@ const Header = () => {
           onChange={(e) => {
             filterDispatch({
               type: "FILTER_BY_SEARCH",
-              payload: e.target.value,
+              payload:e.target.value,
             });
           }}
+          value={bySearch}
         />
       )}
 
@@ -97,7 +100,7 @@ const Header = () => {
 
         <Link to="/wishlist" className="nav-element linkStyle ">
           <BiHeart className="nav-icons " />
-          <div className="icon-type ">Whishlist</div>
+          <div className="icon-type ">Wishlist</div>
           <div className="badge">{wishlist.length} </div>
         </Link>
         <Link to="/checkout" className="nav-element linkStyle">

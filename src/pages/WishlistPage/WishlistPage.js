@@ -1,16 +1,13 @@
 import React, { useContext } from "react";
-import { CartContext } from "../../context/Context";
 import "../ProductPage/ProductPage.css";
 import "../CheckoutPage/CheckoutPage.css";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext/CartContext";
 
 const Wishlistpage = () => {
-  const {
-    state: { wishlist, cart },
-    dispatch,
-  } = useContext(CartContext);
+  const {productState:{wishlist, cart}, productDispatch } = useContext(CartContext)
   return (
     <div>
       <Header />
@@ -36,7 +33,7 @@ const Wishlistpage = () => {
                 {wishlist.some((prod) => prod.id === product.id) ? (
                   <AiFillHeart
                     onClick={() => {
-                      dispatch({
+                      productDispatch({
                         type: "REMOVE_FROM_WISHLIST",
                         payload: product,
                       });
@@ -46,7 +43,7 @@ const Wishlistpage = () => {
                 ) : (
                   <AiOutlineHeart
                     onClick={() => {
-                      dispatch({
+                      productDispatch({
                         type: "ADD_TO_WISHLIST",
                         payload: product,
                       });
@@ -66,7 +63,7 @@ const Wishlistpage = () => {
                   <button
                     className="prod-button remove-button"
                     onClick={() => {
-                      dispatch({
+                      productDispatch({
                         type: "REMOVE_FROM_CART",
                         payload: product,
                       });
@@ -78,7 +75,7 @@ const Wishlistpage = () => {
                   <button
                     className="prod-button"
                     onClick={() => {
-                      dispatch({
+                      productDispatch({
                         type: "ADD_TO_CART",
                         payload: product,
                       });

@@ -1,36 +1,39 @@
 import React, { useContext } from "react";
-import { CartContext } from "../../context/Context";
+import { FilterContext } from "../../context/FilterContext/FilterContext";
 import Rating from "../Rating";
 import "./Sidebar.css";
 
 const Sidebar = () => {
   const {
     filterDispatch,
-    filterState: { byRating, sort, byCategory },
-  } = useContext(CartContext);
+    filterState: { byRating,sort, byCategory },
+    filterState,
+  } = useContext(FilterContext);
 
-  const filterCategory = (e, payloadValue) =>
-    e.target.checked === true
+  const handleFilters = (e, value) => {
+    e.target.checked
       ? filterDispatch({
           type: "FILTER_BY_CATEGORY",
-          payload: payloadValue,
+          payload: value,
         })
       : filterDispatch({
           type: "UNFILTER_BY_CATEGORY",
-          payload: payloadValue,
+          payload: value,
         });
+  };
 
+  console.log(filterState);
   return (
     <div className="sidebar">
       <div className="filter-title">
         <span>Filters </span>
         <span
           className="clear-filter"
-          onClick={() => {
+          onClick ={()=>{
             filterDispatch({
-              type: "CLEAR_ALL",
-            });
-          }}
+              type:"CLEAR_FILTER"
+            })
+          } }
         >
           Clear all
         </span>
@@ -43,13 +46,14 @@ const Sidebar = () => {
           <input
             type="radio"
             name="group1"
-            onChange={() => {
+            onClick={() => {
               filterDispatch({
                 type: "SORT_BY_PRICE",
                 payload: "lowToHigh",
               });
             }}
-            checked={sort === "lowToHigh" ? true : false}
+
+            checked ={ sort === "lowToHigh"  }
           />
           Price(Low to High)
         </label>
@@ -57,36 +61,29 @@ const Sidebar = () => {
           <input
             type="radio"
             name="group1"
-            onChange={() => {
+            onClick={() => {
               filterDispatch({
                 type: "SORT_BY_PRICE",
                 payload: "highToLow",
               });
             }}
-            checked={sort === "highToLow" ? true : false}
+            checked ={ sort === "highToLow" }
+
           />
           Price(High to Low)
         </label>
       </div>
       <hr />
-      {/* <div className="filter-elements">
-        <div className="filter-title"> Price</div>
-        
-        <label>
-          Price range:0 to 5000
-          <input type="range" className="range-input" />
-        </label>
-      </div>
-      <hr /> */}
+
       <div className="filter-elements">
         <div className="filter-title"> Types</div>
         <label>
           <input
             type="checkbox"
             onChange={(e) => {
-              filterCategory(e, "electronics");
+              handleFilters(e, "electronics");
             }}
-            checked={byCategory.includes("electronics") ? true : false}
+            checked ={ byCategory.includes("electronics") }
           />
           Electronics
         </label>
@@ -94,9 +91,10 @@ const Sidebar = () => {
           <input
             type="checkbox"
             onChange={(e) => {
-              filterCategory(e, "men's clothing");
+              handleFilters(e, "men's clothing");
             }}
-            checked={byCategory.includes("men's clothing") ? true : false}
+            checked ={ byCategory.includes("men's clothing") }
+
           />
           Men's clothing
         </label>
@@ -105,9 +103,9 @@ const Sidebar = () => {
           <input
             type="checkbox"
             onChange={(e) => {
-              filterCategory(e, "women's clothing");
+              handleFilters(e, "women's clothing");
             }}
-            checked={byCategory.includes("women's clothing") ? true : false}
+            checked ={ byCategory.includes("women's clothing") }
           />
           Women's clothing
         </label>
@@ -115,9 +113,9 @@ const Sidebar = () => {
           <input
             type="checkbox"
             onChange={(e) => {
-              filterCategory(e, "jewelery");
+              handleFilters(e, "jewelery");
             }}
-            checked={byCategory.includes("jewelery") ? true : false}
+            checked ={ byCategory.includes("jewelery") }
           />
           Jewelery
         </label>

@@ -2,11 +2,13 @@ import Header from "../../components/Header/Header";
 import "../HomePage/HomePage.css";
 import React, { useContext } from "react";
 import Footer from "../../components/Footer/Footer";
-import { CartContext } from "../../context/Context";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext/CartContext";
+import { FilterContext } from "../../context/FilterContext/FilterContext";
 
 const HomePage = () => {
-  const { filterDispatch, filterState } = useContext(CartContext);
+  const { filterDispatch, filterState } = useContext(FilterContext );
+
   console.log(filterState);
   return (
     <div>
@@ -15,8 +17,7 @@ const HomePage = () => {
         <div className="hero-background">
           Discover the trends
           <Link to="./product" className="linkStyle title ">
-            {" "}
-            Shop now{" "}
+            Shop now
           </Link>
         </div>
         <div className="prod-categories">
@@ -27,7 +28,7 @@ const HomePage = () => {
               className="category-type linkStyle"
               onClick={() => {
                 filterDispatch({
-                  type: "SORT_BY_CATEGORIES",
+                  type: "FILTER_BY_CATEGORY",
                   payload: "electronics",
                 });
               }}
@@ -44,7 +45,7 @@ const HomePage = () => {
               className="category-type linkStyle"
               onClick={() => {
                 filterDispatch({
-                  type: "SORT_BY_CATEGORIES",
+                  type: "FILTER_BY_CATEGORY",
                   payload: "men's clothing",
                 });
               }}
@@ -62,7 +63,7 @@ const HomePage = () => {
               className="category-type linkStyle"
               onClick={() => {
                 filterDispatch({
-                  type: "SORT_BY_CATEGORIES",
+                  type: "FILTER_BY_CATEGORY",
                   payload: "women's clothing",
                 });
               }}
@@ -79,7 +80,7 @@ const HomePage = () => {
               className="category-type linkStyle"
               onClick={() => {
                 filterDispatch({
-                  type: "SORT_BY_CATEGORIES",
+                  type: "FILTER_BY_CATEGORY",
                   payload: "jewelery",
                 });
               }}

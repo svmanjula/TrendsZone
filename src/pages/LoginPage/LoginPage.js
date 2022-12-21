@@ -10,7 +10,7 @@ const Loginpage = () => {
       <div className="profile-container" >
 
       <div className="container">
-        <div className="title">Login </div>
+        <div className="container-title">Login </div>
 
         <label>Email address </label>
         <input placeholder="Enter your email" type="text" />

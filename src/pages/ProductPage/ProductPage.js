@@ -3,60 +3,67 @@ import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import "./ProductPage.css";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { CartContext } from "../../context/Context";
 import Rating from "../../components/Rating";
+import { CartContext } from "../../context/CartContext/CartContext";
+import { FilterContext } from "../../context/FilterContext/FilterContext";
 
 const ProductPage = () => {
   const {
+    productDispatch,
     products,
-    filterState: { sort, byRating, bySearch, byCategory },
-    state: { cart, wishlist },
-
-    dispatch,
+    productState: { cart, wishlist },
   } = useContext(CartContext);
 
-  const filterProducts = () => {
+  const {
+    filterState: { sort, byCategory, byRating,bySearch },
+  } = useContext(FilterContext);
+  console.log(cart, wishlist);
+
+  const filteredProducts = () => {
     let sortedProducts = [...products];
 
-    if (sort) {
-      sortedProducts = sortedProducts.sort((a, b) =>
-        sort === "lowToHigh" ? a.price - b.price : b.price - a.price
-      );
-    }
-    if (bySearch) {
-      sortedProducts = sortedProducts.filter((prod) =>
-        prod.title.toLowerCase().includes(bySearch)
-      );
-    }
-    if (byCategory) {
-      sortedProducts = sortedProducts.filter((prod) =>
-        byCategory.includes(prod.category)
-      );
+    if(byCategory.length !== 0){
+      sortedProducts = sortedProducts.filter((existingProduct)=>
+      byCategory.includes(existingProduct.category)
+      )
     }
 
-    if (byRating) {
-      sortedProducts = sortedProducts.filter((prod) => {
-        console.log("rating", prod.rating.rate >= byRating);
-        return prod.rating.rate >= byRating;
-      });
-    } else {
-      return sortedProducts;
+    if(sort){
+      sortedProducts =sortedProducts.sort((a,b) =>
+      sort === "lowToHigh" ? (a.price-b.price) :(b.price-a.price)
+      )
     }
+
+    if(byRating){
+      sortedProducts = sortedProducts.filter((existingProduct)=>
+     Math.round( existingProduct.rating.rate) >= byRating
+       )
+    }
+    if(bySearch !== null){
+      sortedProducts =sortedProducts.filter((existingProduct)=>
+      existingProduct.title.toLowerCase().includes(bySearch)
+      )
+    }
+
+    
+
+return sortedProducts;
   };
-  console.log(byCategory);
+console.log(filteredProducts() )
+  
 
   return (
     <div>
       <Header />
       <div className="products-container">
-        {filterProducts()?.map((product) => (
+        {filteredProducts().map((product) => (
           <div key={product.id} className="product-container ">
             <img alt="img" src={product.image} className="prod-img" />
 
             {wishlist.some((prod) => prod.id === product.id) ? (
               <AiFillHeart
                 onClick={() => {
-                  dispatch({
+                  productDispatch({
                     type: "REMOVE_FROM_WISHLIST",
                     payload: product,
                   });
@@ -66,7 +73,7 @@ const ProductPage = () => {
             ) : (
               <AiOutlineHeart
                 onClick={() => {
-                  dispatch({
+                  productDispatch({
                     type: "ADD_TO_WISHLIST",
                     payload: product,
                   });
@@ -78,16 +85,17 @@ const ProductPage = () => {
             <div className="prod-title">
               {product.title.split(" ").slice(0, 3).join(" ")}
             </div>
-            {/* <div className="prod-description">
-            {product.description}
-          </div> */}
+
             <div className="prod-cost">${product.price} </div>
             <Rating rating={product.rating.rate} />
-            {cart.some((prod) => prod.id === product.id) ? (
+
+            {cart.some(
+              (existingProduct) => existingProduct.id === product.id
+            ) ? (
               <button
                 className="prod-button remove-button"
                 onClick={() => {
-                  dispatch({
+                  productDispatch({
                     type: "REMOVE_FROM_CART",
                     payload: product,
                   });
@@ -99,7 +107,7 @@ const ProductPage = () => {
               <button
                 className="prod-button"
                 onClick={() => {
-                  dispatch({
+                  productDispatch({
                     type: "ADD_TO_CART",
                     payload: product,
                   });

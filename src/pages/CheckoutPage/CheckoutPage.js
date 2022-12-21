@@ -3,29 +3,23 @@ import "../CheckoutPage/CheckoutPage.css";
 import { Link } from "react-router-dom";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import Header from "../../components/Header/Header";
-import { CartContext } from "../../context/Context";
 import Rating from "../../components/Rating";
+import { CartContext } from "../../context/CartContext/CartContext";
 
 const CheckoutPage = () => {
-  const [total, setTotal] = useState(0);
-
   const {
-    state: { cart, quantity },
-    dispatch,
+    productState: { cart },
+    productDispatch,
   } = useContext(CartContext);
 
-  console.log(quantity);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    setTotal(cart.reduce((acc, curr) => acc + curr.price, 0));
+    setTotal(
+      cart.reduce((acc, curr) => acc + Number(curr.price) * Number(curr.qty), 0)
+    );
   }, [cart]);
-
-  function increment() {
-    return quantity + 1;
-  }
-  const decrement = () => {
-    return quantity - 1;
-  };
+  console.log(total);
 
   return (
     <div>
@@ -65,10 +59,10 @@ const CheckoutPage = () => {
                     <Rating rating={cartProduct.rating.rate} />
                     <span className="cart-product-qty-container ">
                       <span>Quantity:</span>
-                      {quantity === 1 ? (
+                      {cartProduct.qty === 1 ? (
                         <button
                           onClick={() => {
-                            dispatch({
+                            productDispatch({
                               type: "REMOVE_FROM_CART",
                               payload: cartProduct,
                             });
@@ -80,17 +74,33 @@ const CheckoutPage = () => {
                       ) : (
                         <button
                           className="cart-product-qty decrement"
-                          onClick={() => decrement()}
+                          onClick={() => {
+                            productDispatch({
+                              type: "DECREMENT",
+                              payload: {
+                                id: cartProduct.id,
+                                qty: cartProduct.qty,
+                              },
+                            });
+                          }}
                         >
                           <AiOutlineMinus />
                         </button>
                       )}
 
-                      <span className="cart-product-qty">{quantity} </span>
+                      <span className="cart-product-qty">
+                        {cartProduct.qty}
+                      </span>
                       <button
                         className="cart-product-qty increment"
                         onClick={() => {
-                          increment();
+                          productDispatch({
+                            type: "INCREMENT",
+                            payload: {
+                              id: cartProduct.id,
+                              qty: cartProduct.qty,
+                            },
+                          });
                         }}
                       >
                         <AiOutlinePlus />
@@ -99,7 +109,7 @@ const CheckoutPage = () => {
                     <div className="cart-product-button ">
                       <button
                         onClick={() => {
-                          dispatch({
+                          productDispatch({
                             type: "REMOVE_FROM_CART",
                             payload: cartProduct,
                           });
@@ -109,7 +119,7 @@ const CheckoutPage = () => {
                       </button>
                       <button
                         onClick={() => {
-                          dispatch({
+                          productDispatch({
                             type: "ADD_TO_WISHLIST",
                             payload: cartProduct,
                           });
@@ -129,7 +139,7 @@ const CheckoutPage = () => {
               <div>
                 <div className="price-details">
                   <span>Price ({cart.length} items) </span>
-                  <span> ${total} </span>
+                  <span> $ {total.toFixed(1)} </span>
                 </div>
 
                 <div className="price-details">
@@ -140,7 +150,7 @@ const CheckoutPage = () => {
                 <hr />
                 <div className="price-details">
                   <span> Total Amount</span>
-                  <span> ${total} </span>
+                  <span> $ {total.toFixed(1)} </span>
                 </div>
               </div>
               <hr />

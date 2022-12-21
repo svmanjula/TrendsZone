@@ -9,7 +9,7 @@ const Signuppage = () => {
       <Header />
       <div className="profile-container">
         <div className="container">
-          <div className="title">Sign up </div>
+          <div className="container-title">Sign up </div>
 
           <label>Full name </label>
           <input placeholder="Enter your full name" type="text" />
