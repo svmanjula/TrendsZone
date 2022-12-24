@@ -1,0 +1,51 @@
+.singleProduct-container {
+  position: absolute;
+  top: 15rem;
+  max-width: 60%;
+  left: 20%;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+.singleProduct-title{
+    font-weight: bolder;
+    font-size: larger;
+}
+.singleProduct-cost{
+    font-size: large;
+    font-weight: bold;
+}
+.singleProduct-img {
+  height: 15rem;
+  object-fit: contain;
+}
+.singleProduct-discription {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.singleProduct-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap:3rem;
+}
+
+.wishlist-icon-singleProduct {
+  font-size: 1.3rem;
+  color: white;
+}
+.wishlist-icon-singleProduct:hover {
+  color: black;
+}
+.filled-icon {
+  color: rgb(223, 18, 18);
+}
+.singleProduct-btn {
+  width: 12rem;
+  height: 3rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}

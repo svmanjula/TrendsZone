@@ -7,7 +7,10 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext/CartContext";
 
 const Wishlistpage = () => {
-  const {productState:{wishlist, cart}, productDispatch } = useContext(CartContext)
+  const {
+    productState: { wishlist, cart },
+    productDispatch,
+  } = useContext(CartContext);
   return (
     <div>
       <Header />
@@ -28,8 +31,6 @@ const Wishlistpage = () => {
           <div className="wishlist-products-container">
             {wishlist.map((product) => (
               <div key={product.id} className="product-container">
-                <img src={product.image} alt="img" className="prod-img" />
-
                 {wishlist.some((prod) => prod.id === product.id) ? (
                   <AiFillHeart
                     onClick={() => {
@@ -51,14 +52,15 @@ const Wishlistpage = () => {
                     className="wishlist-icon"
                   />
                 )}
+                <Link to={`product/${wishlist.id} `} className="linkStyle">
+                  <img src={product.image} alt="img" className="prod-img" />
 
-                <div className="prod-title">
-                  {product.title.split(" ").slice(0, 3).join(" ")}
-                </div>
-                {/* <div className="prod-description">
-                {product.description}
-              </div> */}
-                <div className="prod-cost">${product.price} </div>
+                  <div className="prod-title">
+                    {product.title.split(" ").slice(0, 3).join(" ")}
+                  </div>
+
+                  <div className="prod-cost">${product.price} </div>
+                </Link>
                 {cart.some((prod) => prod.id === product.id) ? (
                   <button
                     className="prod-button remove-button"

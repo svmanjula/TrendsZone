@@ -3,11 +3,10 @@ import "../HomePage/HomePage.css";
 import React, { useContext } from "react";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../context/CartContext/CartContext";
 import { FilterContext } from "../../context/FilterContext/FilterContext";
 
 const HomePage = () => {
-  const { filterDispatch, filterState } = useContext(FilterContext );
+  const { filterDispatch, filterState } = useContext(FilterContext);
 
   console.log(filterState);
   return (

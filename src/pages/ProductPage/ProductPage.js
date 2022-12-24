@@ -6,6 +6,7 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import Rating from "../../components/Rating";
 import { CartContext } from "../../context/CartContext/CartContext";
 import { FilterContext } from "../../context/FilterContext/FilterContext";
+import { Link } from "react-router-dom";
 
 const ProductPage = () => {
   const {
@@ -15,51 +16,45 @@ const ProductPage = () => {
   } = useContext(CartContext);
 
   const {
-    filterState: { sort, byCategory, byRating,bySearch },
+    filterState: { sort, byCategory, byRating, bySearch },
   } = useContext(FilterContext);
   console.log(cart, wishlist);
 
   const filteredProducts = () => {
     let sortedProducts = [...products];
 
-    if(byCategory.length !== 0){
-      sortedProducts = sortedProducts.filter((existingProduct)=>
-      byCategory.includes(existingProduct.category)
-      )
+    if (byCategory.length !== 0) {
+      sortedProducts = sortedProducts.filter((existingProduct) =>
+        byCategory.includes(existingProduct.category)
+      );
     }
 
-    if(sort){
-      sortedProducts =sortedProducts.sort((a,b) =>
-      sort === "lowToHigh" ? (a.price-b.price) :(b.price-a.price)
-      )
+    if (sort) {
+      sortedProducts = sortedProducts.sort((a, b) =>
+        sort === "lowToHigh" ? a.price - b.price : b.price - a.price
+      );
     }
 
-    if(byRating){
-      sortedProducts = sortedProducts.filter((existingProduct)=>
-     Math.round( existingProduct.rating.rate) >= byRating
-       )
+    if (byRating) {
+      sortedProducts = sortedProducts.filter(
+        (existingProduct) => Math.round(existingProduct.rating.rate) >= byRating
+      );
     }
-    if(bySearch !== null){
-      sortedProducts =sortedProducts.filter((existingProduct)=>
-      existingProduct.title.toLowerCase().includes(bySearch)
-      )
+    if (bySearch !== null) {
+      sortedProducts = sortedProducts.filter((existingProduct) =>
+        existingProduct.title.toLowerCase().includes(bySearch)
+      );
     }
 
-    
-
-return sortedProducts;
+    return sortedProducts;
   };
-console.log(filteredProducts() )
-  
 
   return (
     <div>
       <Header />
       <div className="products-container">
         {filteredProducts().map((product) => (
-          <div key={product.id} className="product-container ">
-            <img alt="img" src={product.image} className="prod-img" />
-
+          <div key={product.id} className="product-container linkStyle ">
             {wishlist.some((prod) => prod.id === product.id) ? (
               <AiFillHeart
                 onClick={() => {
@@ -81,14 +76,16 @@ console.log(filteredProducts() )
                 className="wishlist-icon"
               />
             )}
+            <Link to={`/product/${product.id}`} className="linkStyle">
+              <img alt="img" src={product.image} className="prod-img" />
 
-            <div className="prod-title">
-              {product.title.split(" ").slice(0, 3).join(" ")}
-            </div>
+              <div className="prod-title">
+                {product.title.split(" ").slice(0, 3).join(" ")}
+              </div>
 
-            <div className="prod-cost">${product.price} </div>
-            <Rating rating={product.rating.rate} />
-
+              <div className="prod-cost">${product.price} </div>
+              <Rating rating={product.rating.rate} />
+            </Link>
             {cart.some(
               (existingProduct) => existingProduct.id === product.id
             ) ? (

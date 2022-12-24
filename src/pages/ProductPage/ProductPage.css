@@ -2,11 +2,9 @@
   display: flex;
   position: absolute;
   margin-top: 8rem;
-  text-align: center;
   flex-direction: column;
-   text-align : center;
-   justify-content: center;
    width: 100vw;
+   align-items: center;
 }
 
 .wishlist-products-container{

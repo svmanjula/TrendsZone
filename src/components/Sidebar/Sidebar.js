@@ -46,7 +46,7 @@ const Sidebar = () => {
           <input
             type="radio"
             name="group1"
-            onClick={() => {
+            onChange={() => {
               filterDispatch({
                 type: "SORT_BY_PRICE",
                 payload: "lowToHigh",
@@ -61,7 +61,7 @@ const Sidebar = () => {
           <input
             type="radio"
             name="group1"
-            onClick={() => {
+            onChange={() => {
               filterDispatch({
                 type: "SORT_BY_PRICE",
                 payload: "highToLow",
