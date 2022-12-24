@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { Link, useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Rating from "../../components/Rating";
@@ -16,7 +15,7 @@ const SingleProductPage = () => {
     productState: { cart, wishlist },
   } = useContext(CartContext);
 
-  const singleProduct = products.find((product) => product.id == productId);
+  const singleProduct = products.find((product) => product.id === Number(productId));
 
   console.log(singleProduct);
   console.log("param", productId);
@@ -37,7 +36,7 @@ const SingleProductPage = () => {
                 singleProduct.title.split(" ").slice(0, 7).join(" ")}
             </div>
             <Rating rating={singleProduct && singleProduct.rating.rate} />
-            
+
             <div className="prod-description">
               {singleProduct &&
                 singleProduct.description.split(" ").slice(0, 17).join(" ")}
@@ -51,17 +50,20 @@ const SingleProductPage = () => {
               {cart.some(
                 (existingProduct) => existingProduct.id === singleProduct.id
               ) ? (
+
+                <Link to = '/checkout' className="linkStyle" >
                 <button
-                  className="prod-button remove-button singleProduct-btn"
-                  onClick={() => {
-                    productDispatch({
-                      type: "REMOVE_FROM_CART",
-                      payload: singleProduct,
-                    });
-                  }}
+                  className="cart-btn singleProduct-btn"
+                  // onClick={() => {
+                  //   productDispatch({
+                  //     type: "REMOVE_FROM_CART",
+                  //     payload: singleProduct,
+                  //   });
+                  // }}
                 >
-                  Remove from cart
+                  Go to cart
                 </button>
+                </Link>
               ) : (
                 <button
                   className="prod-button singleProduct-btn"
@@ -86,8 +88,7 @@ const SingleProductPage = () => {
                     });
                   }}
                 >
-                  <AiFillHeart className="wishlist-icon-singleProduct filled-icon   " />
-                  Remove from Wishlist
+                  Remove from wishlist
                 </button>
               ) : (
                 <button
@@ -99,8 +100,7 @@ const SingleProductPage = () => {
                     });
                   }}
                 >
-                  <AiOutlineHeart className="wishlist-icon-singleProduct " />
-                  Wishlist
+                  Add to wishlist
                 </button>
               )}
             </div>

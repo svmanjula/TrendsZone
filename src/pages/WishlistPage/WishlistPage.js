@@ -5,6 +5,7 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext/CartContext";
+import Rating from "../../components/Rating";
 
 const Wishlistpage = () => {
   const {
@@ -60,6 +61,7 @@ const Wishlistpage = () => {
                   </div>
 
                   <div className="prod-cost">${product.price} </div>
+                  <Rating rating={product.rating.rate}  />
                 </Link>
                 {cart.some((prod) => prod.id === product.id) ? (
                   <button

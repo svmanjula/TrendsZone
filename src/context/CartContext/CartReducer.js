@@ -11,7 +11,7 @@ export const CartReducer = (productState, action) => {
         ...productState,
         cart: [
           ...productState.cart.filter(
-            (currentElement) => currentElement.id !== action.payload.id
+            (product) => product.id !== action.payload.id
           ),
         ],
       };
@@ -20,6 +20,7 @@ export const CartReducer = (productState, action) => {
       return {
         ...productState,
         wishlist: [...productState.wishlist, action.payload],
+        cart:[...productState.cart.filter((product)=> product.id !== action.payload.id ) ]
       };
 
     case "REMOVE_FROM_WISHLIST":
@@ -27,7 +28,7 @@ export const CartReducer = (productState, action) => {
         ...productState,
         wishlist: [
           ...productState.wishlist.filter(
-            (currentElement) => currentElement.id !== action.payload.id
+            (product) => product.id !== action.payload.id
           ),
         ],
       };
@@ -36,10 +37,10 @@ export const CartReducer = (productState, action) => {
       return {
         ...productState,
         cart: [
-          ...productState.cart.filter((existingElement) =>
-            existingElement.id === action.payload.id
-              ? (existingElement.qty = action.payload.qty + 1)
-              : existingElement.qty
+          ...productState.cart.filter((product) =>
+          product.id === action.payload.id
+              ? (product.qty = action.payload.qty + 1)
+              : product.qty
           ),
         ],
       };
@@ -48,10 +49,10 @@ export const CartReducer = (productState, action) => {
       return {
         ...productState,
         cart: [
-          ...productState.cart.filter((existElement) =>
-            existElement.id === action.payload.id
-              ? (existElement.qty = action.payload - 1)
-              : existElement.qty
+          ...productState.cart.filter((product) =>
+          product.id === action.payload.id
+              ? (product.qty = action.payload - 1)
+              : product.qty
           ),
         ],
       };

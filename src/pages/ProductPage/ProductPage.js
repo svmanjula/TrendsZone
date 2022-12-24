@@ -84,7 +84,7 @@ const ProductPage = () => {
               </div>
 
               <div className="prod-cost">${product.price} </div>
-              <Rating rating={product.rating.rate} />
+              <Rating rating={product.rating.rate}  />
             </Link>
             {cart.some(
               (existingProduct) => existingProduct.id === product.id
