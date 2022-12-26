@@ -30,7 +30,7 @@ const Header = () => {
   return (
     <div className="navbar">
       <div className="nav-elements">
-        <div className="brand-title">EVOLT</div>
+        <div className="brand-title">TrendsZone</div>
         <Link
           className="toggle-button"
           onClick={() => {

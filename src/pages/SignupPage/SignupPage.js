@@ -36,7 +36,7 @@ const Signuppage = () => {
     e.preventDefault();
 
     signin(email, password, name, confirmPassword)
-      .then((userCredential) => navigate("/login"))
+      .then(() => navigate("/login"))
       .catch((error) => setError(error));
   };
 
@@ -61,7 +61,7 @@ const Signuppage = () => {
             onChange={(e) => {
               setName(e.target.value);
             }}
-            autocomplete="on"
+            autoComplete="on"
             value={name}
           />
           <label>Email address </label>
@@ -71,7 +71,7 @@ const Signuppage = () => {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
-            autocomplete="on"
+            autoComplete="on"
             value={email}
           />
 
@@ -83,7 +83,7 @@ const Signuppage = () => {
               setPassword(e.target.value);
             }}
             value={password}
-            autocomplete="on"
+            autoComplete="on"
           />
           {displayPassword ? (
             <AiOutlineEye
@@ -103,7 +103,7 @@ const Signuppage = () => {
             type={displayConfirmedPswrd ? "text" : "password"}
             onChange={(e) => setConfirmPassword(e.target.value)}
             value={confirmPassword}
-            autocomplete="on"
+            autoComplete="on"
           />
 
           {displayConfirmedPswrd ? (

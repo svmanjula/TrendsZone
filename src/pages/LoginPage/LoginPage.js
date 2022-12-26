@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import Header from "../../components/Header/Header";
 import "./LoginPage.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
+import { auth } from "../../firebase/Firebase";
 
 const Loginpage = () => {
   const { login } = useContext(AuthContext);
@@ -24,7 +25,7 @@ const Loginpage = () => {
       .then((userCredential) => navigate("/product"))
       .catch((error) => setError(error));
   };
-
+  console.log(auth);
   return (
     <div>
       <Header />
@@ -46,7 +47,7 @@ const Loginpage = () => {
             placeholder="Enter your email"
             type="email"
             value={email}
-            autocomplete="on"
+            autoComplete="on"
             onChange={(e) => {
               setEmail(e.target.value);
             }}
@@ -56,7 +57,7 @@ const Loginpage = () => {
           <input
             placeholder="Enter your password"
             type="password"
-            autocomplete="on"
+            autoComplete="on"
             onChange={(e) => {
               setPassword(e.target.value);
             }}
@@ -77,7 +78,14 @@ const Loginpage = () => {
           <button
             className="button test"
             onClick={() => {
-              navigate("/product");
+              auth
+                .getUser("08pX1OPuuWNsOzJrekhDyZtARH52")
+                .then(() => {
+                  navigate("/product");
+                })
+                .catch((error) => {
+                  console.log("Error fetching user data:", error);
+                });
             }}
           >
             Login with test credentials

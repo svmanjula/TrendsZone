@@ -38,7 +38,6 @@ export const AuthContextProvider = ({ children }) => {
     return listen;
   }, []);
 
-  console.log(authUser);
   return (
     <AuthContext.Provider value={{ signin, login, logout, authUser }}>
       {children}
