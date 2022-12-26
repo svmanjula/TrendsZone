@@ -7,12 +7,17 @@ import { Link, useLocation } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 import { CartContext } from "../../context/CartContext/CartContext";
 import { FilterContext } from "../../context/FilterContext/FilterContext";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
 
 const Header = () => {
   const [hamburgerClick, setHamburgerClick] = useState(false);
   const location = useLocation();
+  const { authUser, logout } = useContext(AuthContext);
 
-  const { filterDispatch, filterState:{bySearch} } = useContext(FilterContext);
+  const {
+    filterDispatch,
+    filterState: { bySearch },
+  } = useContext(FilterContext);
 
   const {
     productState: { wishlist, cart },
@@ -82,7 +87,7 @@ const Header = () => {
           onChange={(e) => {
             filterDispatch({
               type: "FILTER_BY_SEARCH",
-              payload:e.target.value,
+              payload: e.target.value,
             });
           }}
           value={bySearch}
@@ -95,7 +100,21 @@ const Header = () => {
           className=" linkStyle nav-element media-query nav-profile"
         >
           <MdPersonOutline className="nav-icons " />
-          <div className="icon-type">Profile</div>
+          <div className="icon-type">
+            {" "}
+            {authUser ? (
+              <div
+                onClick={() => {
+                  logout();
+                }}
+              >
+                {" "}
+                Logout{" "}
+              </div>
+            ) : (
+              <div>Login </div>
+            )}{" "}
+          </div>
         </Link>
 
         <Link to="/wishlist" className="nav-element linkStyle ">

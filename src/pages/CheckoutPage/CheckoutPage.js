@@ -12,6 +12,7 @@ const CheckoutPage = () => {
     productDispatch,
   } = useContext(CartContext);
 
+
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
@@ -59,7 +60,7 @@ const CheckoutPage = () => {
                     <Rating rating={cartProduct.rating.rate} />
                     <span className="cart-product-qty-container ">
                       <span>Quantity:</span>
-                      {cartProduct.qty === 1 ? (
+                      {(cartProduct.qty === 1) ? (
                         <button
                           onClick={() => {
                             productDispatch({
