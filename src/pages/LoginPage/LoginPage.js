@@ -22,7 +22,7 @@ const Loginpage = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     login(email, password)
-      .then((userCredential) => navigate("/product"))
+      .then(() => navigate("/product"))
       .catch((error) => setError(error));
   };
   console.log(auth);
@@ -78,14 +78,8 @@ const Loginpage = () => {
           <button
             className="button test"
             onClick={() => {
-              auth
-                .getUser("08pX1OPuuWNsOzJrekhDyZtARH52")
-                .then(() => {
-                  navigate("/product");
-                })
-                .catch((error) => {
-                  console.log("Error fetching user data:", error);
-                });
+              setEmail("test@gmail.com")
+              setPassword(123456789)
             }}
           >
             Login with test credentials
