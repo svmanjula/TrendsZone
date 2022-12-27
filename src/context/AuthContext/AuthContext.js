@@ -12,6 +12,17 @@ export const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   const [authUser, setAuthUser] = useState("");
 
+  // retrieve data from local storage
+
+  const handleLocalstorgeUserData = () => {
+    let userData = localStorage.getItem("userData");
+
+    if (userData) {
+      return setAuthUser(JSON.parse(userData));
+    } else {
+      return setAuthUser([]);
+    }
+  };
   const signin = (email, password, name, confirmPassword) =>
     createUserWithEmailAndPassword(
       auth,
@@ -38,8 +49,15 @@ export const AuthContextProvider = ({ children }) => {
     return listen;
   }, []);
 
+  // saving the userdata to the local storage
+  useEffect(() => {
+    localStorage.setItem("userData", JSON.stringify(authUser));
+  }, [authUser]);
+
   return (
-    <AuthContext.Provider value={{ signin, login, logout, authUser,setAuthUser }}>
+    <AuthContext.Provider
+      value={{ signin, login, logout, authUser, setAuthUser }}
+    >
       {children}
     </AuthContext.Provider>
   );

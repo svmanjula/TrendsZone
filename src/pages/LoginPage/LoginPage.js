@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Header from "../../components/Header/Header";
 import "./LoginPage.css";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import { auth } from "../../firebase/Firebase";
@@ -81,6 +81,7 @@ const Loginpage = () => {
               setEmail("test@gmail.com")
               setPassword(123456789)
             }}
+            type="submit"
           >
             Login with test credentials
           </button>
