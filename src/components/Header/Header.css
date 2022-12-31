@@ -20,9 +20,9 @@
 }
 .nav-elements {
   display: flex;
-  padding-right: 5rem;
   gap: 3rem;
   align-items: center;
+  padding-right: 3rem;
   margin: 0.3rem;
 }
 .nav-icons {
@@ -43,7 +43,7 @@
 .search-element {
   width: 30rem;
   height: 1rem;
-  margin: 0 0.5rem;
+  margin: 0 2rem;
   /* display: none; */
 }
 .hamburger-link {
@@ -143,6 +143,16 @@ left: 0.8rem;
     display: none;
   }
   .brand-title {
-    padding-left: 3rem;
+    padding: 0 0 1rem 3rem;
+    
+  }
+
+  .search-element{
+    display: none;
+  }
+
+  .navbar{
+    justify-content: space-around;
+    
   }
 }

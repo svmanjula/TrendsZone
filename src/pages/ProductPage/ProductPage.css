@@ -94,7 +94,8 @@
 
 @media (max-width: 700px) {
   .products-container {
-    margin: 2rem;
+    margin-left: 40%;
+    justify-content: center;
   }
 
   .product-container {
