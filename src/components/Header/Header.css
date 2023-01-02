@@ -9,6 +9,7 @@
   z-index: 1;
   background-color: white;
   width: 100vw;
+  
 }
 
 .brand-title {
@@ -20,10 +21,14 @@
 }
 .nav-elements {
   display: flex;
-  gap: 3rem;
+  gap: 2rem;
   align-items: center;
-  padding-right: 3rem;
   margin: 0.3rem;
+ 
+}
+
+.nav-icons-container{
+  padding-right: 2rem;
 }
 .nav-icons {
   font-size: 1.7rem;
@@ -38,6 +43,7 @@
   flex-direction: column;
   align-items: center;
   font-size: 1.3rem;
+  
 
 }
 .search-element {
@@ -57,8 +63,8 @@
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 25px;
-  height: 18px;
+  width: 1.5rem;
+  height: 1rem;
 }
 
 .toggle-button .bar {
@@ -134,7 +140,7 @@ left: 0.8rem;
 
 
 }
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
   .toggle-button {
     display: flex;
   }
@@ -147,12 +153,16 @@ left: 0.8rem;
     
   }
 
+ 
+
+  
+}
+@media (max-width: 750px){
   .search-element{
     display: none;
   }
 
-  .navbar{
-    justify-content: space-around;
-    
+  .brand-title{
+    font-size: larger;
   }
 }

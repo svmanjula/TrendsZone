@@ -6,6 +6,8 @@
   box-shadow: 0 0 15px -3px;
   padding: 2rem;
   margin-top: 12rem;
+  max-width: 80%;
+
 }
 
 .profile-container {

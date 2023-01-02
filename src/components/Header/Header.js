@@ -30,8 +30,8 @@ const Header = () => {
   return (
     <div className="navbar">
       <div className="nav-elements">
-        <div className="brand-title">TrendsZone</div>
-        <Link
+
+      <Link
           className="toggle-button"
           onClick={() => {
             handleToggle();
@@ -41,6 +41,8 @@ const Header = () => {
           <span className="bar"></span>
           <span className="bar"></span>
         </Link>
+        <div className="brand-title">TrendsZone</div>
+       
 
         {hamburgerClick && (
           <div className="hamburger">
@@ -80,40 +82,39 @@ const Header = () => {
           Shop now
         </Link>
       </div>
-      {location.pathname === "/product" && (
-        <input
-          className="search-element"
-          placeholder="search "
-          onChange={(e) => {
-            filterDispatch({
-              type: "FILTER_BY_SEARCH",
-              payload: e.target.value,
-            });
-          }}
-          value={bySearch}
-        />
-      )}
-
       <div className="nav-elements">
+        {location.pathname === "/product" && (
+          <input
+            placeholder="search..."
+            className="search-element"
+            onChange={(e) => {
+              filterDispatch({
+                type: "FILTER_BY_SEARCH",
+                payload: e.target.value,
+              });
+            }}
+            
+          />
+        )}
+      </div>
+      <div className="nav-elements  nav-icons-container">
         <Link
           to="/login"
           className=" linkStyle nav-element media-query nav-profile"
         >
           <MdPersonOutline className="nav-icons " />
           <div className="icon-type">
-            {" "}
             {authUser ? (
               <div
                 onClick={() => {
                   logout();
                 }}
               >
-                {" "}
-                Logout{" "}
+                Logout
               </div>
             ) : (
               <div>Login </div>
-            )}{" "}
+            )}
           </div>
         </Link>
 
